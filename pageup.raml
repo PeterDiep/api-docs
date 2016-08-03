@@ -1,0 +1,16 @@
+title: PageUp
+baseUri: https://api.pageuppeople.com
+securitySchemes:
+  - oauth_2_0: !include securitySchemes/oauth_2_0.raml
+schemas:
+  - backgroundcheck: !include schemas/backgroundcheck-schema.json
+securedBy: [ oauth_2_0 ]
+/backgroundcheck:
+    queryParameters:
+      list:
+        type: string
+      pending:
+        type: string
+    type: Backgroundcheck[]
+    get:
+      description: returns all the background check request waiting to be processed

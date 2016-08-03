@@ -1,0 +1,29 @@
+description: ""
+type: OAuth 2.0
+describedBy:
+  protocols: https
+  queryParameters:
+    client_id:
+      type: string
+    client_secret:
+      type: string
+    grant_type:
+      type: string
+    scope:
+      type: string
+  responses:
+    200:
+      description: |
+        authenticate sucessfully, the response with contain a timebound credential
+    401:
+      description: |
+        Invalid credentials, check your credentials
+    403:
+      description: |
+        Bad oAuth request, check your payload. Don't try again till the payload is fixed.
+settings:
+  accessTokenUri: https://locksmith-api.dc2.pageuppeople.com/identity/connect/token
+  authorizationGrants: [ client_credentials ]
+  scopes:
+    BackgroundCheck.List
+    BackgroundCheck.StatusUpdate
