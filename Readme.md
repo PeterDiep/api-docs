@@ -16,6 +16,6 @@ There on you can inspect / read the documentation legibly following
 2. `Packages -> API Workbench -> Open RAML Editor Tools`
 
 
-### Preview of dodo in action
+### Quick video of doco in action
 
-![Video of dodo in action](/doco-recording.gif?raw=true "Doco in action recording")
+![Video of doco in action](/doco-recording.gif?raw=true "Doco in action recording")
