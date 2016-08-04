@@ -25,6 +25,7 @@ securedBy: [ oauth_2_0 ]
             application/json:
               schema: backgroundcheck[]
               example: !include examples/backgroundcheck-example.json
+      securedBy: [ oauth_2_0: {scopes: ["BackgroundCheck.List"] } ]
     put:
       description: Allows to update the background check status
       queryParameters:
@@ -40,3 +41,4 @@ securedBy: [ oauth_2_0 ]
       responses:
         200:
           description: Does not return anything.
+      securedBy: [ oauth_2_0: {scopes: ["BackgroundCheck.StatusUpdate"] } ]
