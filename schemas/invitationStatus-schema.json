@@ -1,0 +1,26 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "backgroundCheckUrl": {
+      "type": "uri",
+      "required": false,
+      "description": "if invitation has been created at the provider end, provider is expected to pass url"
+    },
+    "referenceNumber": {
+      "type": "string",
+      "required": false,
+      "description": "provider system identifier"
+    },
+    "message": {
+      "type": "string",
+      "required": false,
+      "description": "A message to be passed to recruiter about the background check, typically description of the status"
+    }
+  }
+}

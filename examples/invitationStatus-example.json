@@ -1,0 +1,6 @@
+{
+  "status": "new",
+  "backgroundCheckUrl": "http://providerwebsite/invitation/12312312",
+  "referenceNumber": "ProviderIdentifier",
+  "message": "invitation is created"
+}
