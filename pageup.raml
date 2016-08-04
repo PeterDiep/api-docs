@@ -1,16 +1,42 @@
 title: PageUp
-baseUri: https://api.pageuppeople.com
+baseUri: https://apiv2.dc2.pageuppeople.com/
 securitySchemes:
   - oauth_2_0: !include securitySchemes/oauth_2_0.raml
 schemas:
   - backgroundcheck: !include schemas/backgroundcheck-schema.json
+  - invitationStatus: !include schemas/invitationStatus-schema.json
 securedBy: [ oauth_2_0 ]
 /backgroundcheck:
-    queryParameters:
-      list:
-        type: string
-      pending:
-        type: string
-    type: Backgroundcheck[]
     get:
-      description: returns all the background check request waiting to be processed
+      description: Returns all the background check requests in the requested status, Default is pending
+      queryParameters:
+        status:
+          type: string
+          required: true
+          example: pending
+          description: Status of the background check request, being requested. Default is pending
+        provider:
+          type: string
+          required: true
+          description: Name of the background check provider, this should be name of the service provider itself. Check with PageUp to ensure it is named as expected
+      responses:
+        200:
+          body:
+            application/json:
+              schema: backgroundcheck[]
+              example: !include examples/backgroundcheck-example.json
+    put:
+      description: Allows to update the background check status
+      queryParameters:
+        id:
+          type: integer
+          required: true
+          description: The background check request, that needs to be updated.
+          example: 123213
+      body:
+        application/json:
+          schema: invitationStatus
+          example: !include examples/invitationStatus-example.json
+      responses:
+        200:
+          description: Does not return anything.
